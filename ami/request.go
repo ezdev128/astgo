@@ -22,7 +22,7 @@ func RequestTimeout(d time.Duration) RequestOption {
 	}
 }
 
-// RequestResponseCallback will case Conn.Request run async, will not timeout
+// RequestResponseCallback will case Conn.Request run async, will not time out
 func RequestResponseCallback(cb func(ctx context.Context, msg *Message, err error)) RequestOption {
 	return func(o *requestOptions) error {
 		o.OnComplete = cb
@@ -40,8 +40,13 @@ func (c *Conn) Request(r interface{}, opts ...RequestOption) (resp *Message, err
 		return nil, errors.Errorf("can only request action: %v", msg.Type)
 	}
 
+	actionID := c.nextID()
+	if _, found := msg.Attributes["ActionID"]; found {
+		actionID = msg.AttrString("ActionID")
+	}
+
 	async := &asyncMsg{
-		id:     c.nextID(),
+		id:     actionID,
 		msg:    msg,
 		result: make(chan *asyncMsg, 1),
 		ctx:    context.Background(),

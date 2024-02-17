@@ -11,9 +11,10 @@ import (
 
 	"github.com/hashicorp/go-multierror"
 	"github.com/pkg/errors"
-	"github.com/wenerme/astgo/ami/amimodels"
 	"go.uber.org/zap"
 	"golang.org/x/sync/errgroup"
+
+	"github.com/ezdev128/astgo/ami/amimodels"
 )
 
 // CustomDialer can be used to specify any dialer, not necessarily
@@ -31,6 +32,7 @@ type ConnectOptions struct {
 	AllowReconnect bool
 	Username       string // login username
 	Secret         string // login secret
+	Events         string // subscribe to events
 	Logger         *zap.Logger
 	Dialer         CustomDialer
 	OnConnectErr   ConnErrHandler
@@ -239,7 +241,7 @@ func (c *Conn) connect(conn net.Conn) (err error) {
 		log.Info("login success")
 	}
 
-	//log.Sugar().Debug("do conn check ping")
+	// log.Sugar().Debug("do conn check ping")
 	// be ready
 	// may not FullyBooted
 	// _, err = c.Request(amimodels.PingAction{})

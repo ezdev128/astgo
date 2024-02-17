@@ -9,8 +9,8 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/ezdev128/astgo/agi/agimodels"
 	"github.com/pkg/errors"
-	"github.com/wenerme/astgo/agi/agimodels"
 	"go.uber.org/zap"
 )
 

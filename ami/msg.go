@@ -9,7 +9,8 @@ import (
 
 	"github.com/mitchellh/mapstructure"
 	"github.com/pkg/errors"
-	"github.com/wenerme/astgo/ami/amimodels"
+
+	"github.com/ezdev128/astgo/ami/amimodels"
 )
 
 type MessageType string
@@ -23,7 +24,7 @@ const (
 type Message struct {
 	Type       MessageType // type of message
 	Name       string      // name of message
-	Attributes map[string]interface{}
+	Attributes map[string]any
 }
 
 func ReadMessage(m *Message, rd io.Reader) (err error) {
@@ -117,7 +118,7 @@ func (m *Message) Write(w io.Writer) (err error) {
 	return WriteMessage(m, w)
 }
 
-func (m Message) Format() string {
+func (m *Message) Format() string {
 	b := bytes.Buffer{}
 	_ = m.Write(&b)
 	return b.String()

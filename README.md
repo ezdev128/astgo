@@ -6,16 +6,16 @@ Libs for Golang to work with Asterisk
 * AGI
 
 [doc-img]: http://img.shields.io/badge/GoDoc-Reference-blue.svg
-[doc]: https://pkg.go.dev/github.com/wenerme/astgo
+[doc]: https://pkg.go.dev/github.com/ezdev128/astgo
 
-[ci-img]: https://github.com/wenerme/astgo/actions/workflows/ci.yml/badge.svg
-[ci]: https://github.com/wenerme/astgo/actions/workflows/ci.yml
+[ci-img]: https://github.com/ezdev128/astgo/actions/workflows/ci.yml/badge.svg
+[ci]: https://github.com/ezdev128/astgo/actions/workflows/ci.yml
 
 [cov-img]: https://codecov.io/gh/wenerme/astgo/branch/master/graph/badge.svg
 [cov]: https://codecov.io/gh/wenerme/astgo/branch/master
 
-[report-card-img]: https://goreportcard.com/badge/github.com/wenerme/astgo
-[report-card]: https://goreportcard.com/report/github.com/wenerme/astgo
+[report-card-img]: https://goreportcard.com/badge/github.com/ezdev128/astgo
+[report-card]: https://goreportcard.com/report/github.com/ezdev128/astgo
 
 ## AMI
 
@@ -33,7 +33,7 @@ package main
 import (
   "context"
   "fmt"
-  "github.com/wenerme/astgo/ami"
+  "github.com/ezdev128/astgo/ami"
 )
 
 func main() {
@@ -69,7 +69,7 @@ func main() {
 package main
 
 import (
-	"github.com/wenerme/astgo/agi"
+	"github.com/ezdev128/astgo/agi"
 )
 
 func main() {

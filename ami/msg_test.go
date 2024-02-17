@@ -8,8 +8,8 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/ezdev128/astgo/ami/amimodels"
 	"github.com/stretchr/testify/assert"
-	"github.com/wenerme/astgo/ami/amimodels"
 )
 
 func TestMsgIO(t *testing.T) {
